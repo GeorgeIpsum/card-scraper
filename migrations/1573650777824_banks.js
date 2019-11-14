@@ -3,10 +3,16 @@
 exports.shorthands = undefined;
 
 exports.up = (pgm) => {
+  pgm.createType('parsemethod', ['JS', 'HTML']);
   pgm.createTable('banks', {
     id: 'id',
     name: { type: 'varchar(1000)', notNull: true },
-    //add relevant checking info here
+    defaultUrl: { type: 'varchar(1000)', notNull: true },
+    parseMethod: {
+      type: 'parsemethod',
+      notNull: true,
+      default: 'HTML'
+    },
     createdAt: {
       type: 'timestamp',
       notNull: true,
@@ -17,4 +23,5 @@ exports.up = (pgm) => {
 
 exports.down = (pgm) => {
   pgm.dropTable('banks');
+  pgm.dropType('parseMethod');
 };

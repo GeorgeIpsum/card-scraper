@@ -22,7 +22,7 @@ pool.query('SELECT * FROM banks', (error, results) => {
 });
 
 const addInitialBanks = () => {
-  const query = "INSERT INTO banks(name) VALUES('Chase'),('American Express')";
+  const query = "INSERT INTO banks(name,defaultUrl,parseMethod) VALUES('Chase'),('American Express')";
   pool.query(query, (error, results) => {
     if(error) throw error;
     console.log(`COMMAND '${results.command}' succeeded.`);
