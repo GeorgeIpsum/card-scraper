@@ -61,3 +61,4 @@ typings/
 .next
 
 config/default.json
+.DS_Store

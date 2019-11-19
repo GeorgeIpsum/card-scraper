@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "tsc && npm run cleandb && node index.js",
+    "start": "tsc && npm run cleandb && node index.js && node gen.js",
     "migrate": "node-pg-migrate",
     "cleandb": "node-pg-migrate redo 2",
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -14,7 +14,7 @@ const TRAVEL_KEYWORDS = [
   "hotel",
   "booking",
   "resort",
-  "foreign",
+  "vacation",
   "airport",
   "concierge",
   "miles",
