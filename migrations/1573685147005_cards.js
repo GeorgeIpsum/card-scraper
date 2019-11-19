@@ -5,18 +5,24 @@ exports.shorthands = undefined;
 exports.up = (pgm) => {
   pgm.createTable('cards', {
     id: 'id',
-    bankId: {
+    bankid: {
       type: 'integer',
       notNull: true,
       references: '"banks"',
       onDelete: 'cascade'
     },
     name: { type: 'varchar(1000)', notNull: true },
-    info: { type: 'text' }
+    defaulturl: { type: 'varchar(1000)', notNull: true },
+    spending: 'jsonb',
+    travel: 'jsonb',
+    entertainment: 'jsonb',
+    security: 'jsonb',
+    other: 'jsonb',
   });
-  pgm.createIndex('cards', 'bankId');
+  pgm.createIndex('cards', 'bankid');
 };
 
 exports.down = (pgm) => {
+  pgm.dropIndex('cards', 'bankid');
   pgm.dropTable('cards');
 };

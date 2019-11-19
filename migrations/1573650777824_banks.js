@@ -3,16 +3,13 @@
 exports.shorthands = undefined;
 
 exports.up = (pgm) => {
-  pgm.createType('parsemethod', ['JS', 'HTML']);
   pgm.createTable('banks', {
     id: 'id',
     name: { type: 'varchar(1000)', notNull: true },
-    defaultUrl: { type: 'varchar(1000)', notNull: true },
-    parseMethod: {
-      type: 'parsemethod',
-      notNull: true,
-      default: 'HTML'
-    },
+    defaulturl: { type: 'varchar(1000)', notNull: true },
+    queryselector: { type: 'text', notNull: true },
+    cardname: { type: 'integer', notNull: true },
+    cardpageselector: { type: 'text', notNull: true },
     createdAt: {
       type: 'timestamp',
       notNull: true,
@@ -23,5 +20,4 @@ exports.up = (pgm) => {
 
 exports.down = (pgm) => {
   pgm.dropTable('banks');
-  pgm.dropType('parseMethod');
 };
